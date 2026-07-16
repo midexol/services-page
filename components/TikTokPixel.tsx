@@ -15,7 +15,7 @@ declare global {
   }
 }
 
-const TIKTOK_PIXEL_ID = "D9CB5TRC77U1ITCMP0JG";
+const TIKTOK_PIXEL_ID = process.env.NEXT_PUBLIC_TIKTOK_PIXEL_ID;
 
 function TikTokPageTracker() {
   const pathname = usePathname();
