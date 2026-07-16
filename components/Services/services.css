@@ -1,0 +1,159 @@
+/* custom animations for services page */
+
+@keyframes float-slow {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(50px, 50px) scale(1.1);
+  }
+}
+@keyframes float-medium {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-40px, 40px) scale(1.15);
+  }
+}
+@keyframes float-fast {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(30px, -30px) scale(1.2);
+  }
+}
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+}
+@keyframes gradient-shift {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(100px, 100px);
+  }
+}
+@keyframes grid-flow {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(50px, 50px);
+  }
+}
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes slide-right {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+@keyframes slide-left {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes slide-right-slow {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 0.3;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+
+.animate-float-slow {
+  animation: float-slow 20s ease-in-out infinite;
+}
+.animate-float-medium {
+  animation: float-medium 15s ease-in-out infinite;
+}
+.animate-float-fast {
+  animation: float-fast 12s ease-in-out infinite;
+}
+.animate-twinkle {
+  animation: twinkle 3s ease-in-out infinite;
+}
+.animate-gradient-shift {
+  animation: gradient-shift 20s ease-in-out infinite;
+}
+.animate-grid-flow {
+  animation: grid-flow 20s linear infinite;
+}
+.animate-scroll {
+  animation: scroll 60s linear infinite;
+}
+.animate-scroll:hover {
+  animation-play-state: paused;
+}
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out;
+}
+.animate-slide-right {
+  animation: slide-right 25s linear infinite;
+}
+.animate-slide-left {
+  animation: slide-left 25s linear infinite;
+}
+.animate-slide-right-slow {
+  animation: slide-right-slow 30s linear infinite;
+}
+.animate-slide-right:hover,
+.animate-slide-left:hover,
+.animate-slide-right-slow:hover {
+  animation-play-state: paused;
+}
+.animate-pulse-slow {
+  animation: pulse-slow 4s ease-in-out infinite;
+}
+
+.delay-1000 {
+  animation-delay: 1s;
+}
+.delay-1500 {
+  animation-delay: 1.5s;
+}
+.delay-2000 {
+  animation-delay: 2s;
+}
