@@ -53,6 +53,13 @@ export default function Home() {
 
       if (response.ok) {
         setFormSubmitted(true);
+        if (typeof window !== "undefined" && window.ttq) {
+          window.ttq.track("SubmitForm", {
+            content_name: "Consultation Request",
+            value: 0,
+            currency: "USD",
+          });
+        }
       } else {
         const errorData = await response.json();
         alert(errorData.error || "Something went wrong. Please try again.");

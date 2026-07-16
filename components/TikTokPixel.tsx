@@ -27,6 +27,40 @@ function TikTokPageTracker() {
     }
   }, [pathname, searchParams]);
 
+  useEffect(() => {
+    const handleGlobalClick = (event: MouseEvent) => {
+      if (typeof window === "undefined" || !window.ttq) return;
+
+      const target = event.target as HTMLElement | null;
+      if (!target) return;
+
+      // Find the nearest interactive element
+      const interactiveEl = target.closest("a, button, [role='button'], input[type='submit'], input[type='button']");
+      
+      if (interactiveEl) {
+        const text = interactiveEl.textContent?.trim() || "";
+        const id = interactiveEl.id || "";
+        const href = interactiveEl.getAttribute("href") || "";
+        const role = interactiveEl.getAttribute("role") || interactiveEl.tagName.toLowerCase();
+        
+        // Truncate text if it's too long (e.g. nested layouts)
+        const cleanText = text.replace(/\s+/g, ' ').substring(0, 50);
+
+        window.ttq.track("ClickButton", {
+          button_name: cleanText || id || href || role,
+          button_id: id || undefined,
+          button_link: href || undefined,
+          button_type: role,
+        });
+      }
+    };
+
+    document.addEventListener("click", handleGlobalClick);
+    return () => {
+      document.removeEventListener("click", handleGlobalClick);
+    };
+  }, []);
+
   return null;
 }
 

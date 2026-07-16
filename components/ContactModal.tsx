@@ -36,6 +36,13 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
     e.preventDefault();
     console.log("Discovery call submitted:", formData);
     setIsSubmitted(true);
+    if (typeof window !== "undefined" && window.ttq) {
+      window.ttq.track("SubmitForm", {
+        content_name: "Discovery Session",
+        value: 0,
+        currency: "USD",
+      });
+    }
   };
 
   const handleReset = () => {
